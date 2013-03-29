@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="igK-eF-4iS">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+    </dependencies>
+    <scenes>
+        <!--Table View Controller - Notes-->
+        <scene sceneID="TVk-dw-FMp">
+            <objects>
+                <tableViewController id="Q9I-P8-gO1" customClass="JLPTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="w8U-7u-cEf">
+                        <rect key="frame" x="0.0" y="64" width="320" height="372"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="My Cell Identifier" id="Jhk-UW-pPQ">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <segue destination="V9B-bn-Dso" kind="push" identifier="tableSelect" id="2sU-Pg-9sv"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Notes" id="bYI-vn-TEd">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Z93-e9-Jsk">
+                            <connections>
+                                <action selector="addButton:" destination="Q9I-P8-gO1" id="7i6-p7-hYJ"/>
+                                <segue destination="V9B-bn-Dso" kind="push" identifier="newNote" id="275-2P-qr5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="AEe-dv-dI9" id="cNx-8e-Ixh"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VbP-CT-Bha" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="AEe-dv-dI9">
+                    <connections>
+                        <outlet property="delegate" destination="Q9I-P8-gO1" id="6yD-JL-Ffh"/>
+                        <outlet property="searchContentsController" destination="Q9I-P8-gO1" id="1JX-QK-xKg"/>
+                        <outlet property="searchResultsDataSource" destination="Q9I-P8-gO1" id="wt9-Ae-dft"/>
+                        <outlet property="searchResultsDelegate" destination="Q9I-P8-gO1" id="Zy3-XX-0df"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="345" y="-70"/>
+        </scene>
+        <!--Detail View Controller - Note-->
+        <scene sceneID="Uc7-R8-3Il">
+            <objects>
+                <viewController id="V9B-bn-Dso" customClass="JLPDetailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="05Y-p1-Ueg">
+                        <rect key="frame" x="0.0" y="64" width="320" height="372"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Notebook+Paper+2.jpg" id="ghb-v4-AIT">
+                                <rect key="frame" x="-41" y="-6" width="361" height="379"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="hybrid" id="tyf-Q6-uIK">
+                                <rect key="frame" x="0.0" y="191" width="320" height="181"/>
+                            </mapView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Insert Title" textAlignment="center" id="6AF-yl-abX">
+                                <rect key="frame" x="11" y="8" width="280" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" id="0b3-OS-85O">
+                                <rect key="frame" x="11" y="27" width="289" height="159"/>
+                                <accessibility key="accessibilityConfiguration" hint="a" label=""/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Type your note...">
+                                        <attributes>
+                                            <font key="NSFont" size="12" name="Helvetica"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Note" id="tKW-iL-foO">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="xjg-Mw-6cX">
+                            <connections>
+                                <action selector="saveButtonPushed:" destination="V9B-bn-Dso" id="ldn-MU-NZm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="background" destination="ghb-v4-AIT" id="Dap-hf-JNm"/>
+                        <outlet property="map" destination="tyf-Q6-uIK" id="Lwf-Wo-ngQ"/>
+                        <outlet property="note" destination="0b3-OS-85O" id="KdE-kn-dCh"/>
+                        <outlet property="title" destination="6AF-yl-abX" id="P13-to-2oN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D1y-OG-Mlf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="868.5" y="-34"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="WxD-Jg-gjD">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="igK-eF-4iS" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oda-Gr-SmF">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Q9I-P8-gO1" kind="relationship" relationship="rootViewController" id="yFh-F0-K3z"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u4U-gw-buI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-159" y="-34"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Notebook+Paper+2.jpg" width="1236" height="1600"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="275-2P-qr5"/>
+    </inferredMetricsTieBreakers>
+</document>
